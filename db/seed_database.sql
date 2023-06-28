@@ -35,15 +35,15 @@ CREATE TABLE purchase_orders
 (
   `id`                     INTEGER PRIMARY KEY AUTOINCREMENT,
   `vendor_name`            VARCHAR(255) NOT NULL,
-  `order_date`             DATE         NOT NULL,
-  `expected_delivery_date` DATE         NOT NULL,
+  `order_date`             DATETIME NOT NULL,
+  `expected_delivery_date` DATETIME NOT NULL,
   `created_at`             TIMESTAMP NULL,
   `updated_at`             TIMESTAMP NULL
 );
 INSERT INTO purchase_orders (`vendor_name`, `order_date`, `expected_delivery_date`)
-VALUES ('Levis', '2023-01-01', '2023-03-10'),
-       ('Bonobos', '2023-02-01', '2023-04-10'),
-       ('Scotch and Soda', '2023-03-01', '2023-05-10');
+VALUES ('Levis', '2023-01-01 12:00:00', '2023-03-10 12:00:00'),
+       ('Bonobos', '2023-02-01 12:00:00', '2023-04-10 12:00:00'),
+       ('Scotch and Soda', '2023-03-01 12:00:00', '2023-05-10 12:00:00');
 
 DROP TABLE IF EXISTS purchase_order_line_items;
 CREATE TABLE purchase_order_line_items

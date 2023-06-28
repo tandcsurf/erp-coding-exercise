@@ -50,7 +50,7 @@ It's likely we won't complete every requirement, but let's get as far as we can 
 - Seeded database
 
 ### Tips
-- Nest comes with [generators](https://docs.nestjs.com/recipes/crud-generator) to help you scaffold out your application. You can run `nx g @nx/nest:resource resource <name>` to generate a resource much of the boilerplate you need for purchase orders.
+- Nest comes with [generators](https://docs.nestjs.com/recipes/crud-generator) to help you scaffold out your application. You can run `nx g @nx/nest:resource <name>` to generate a resource much of the boilerplate you need for purchase orders.
 
 ### To Start Exercise
  - Run `npm install --global nx@latest`
