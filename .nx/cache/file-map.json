@@ -1,0 +1,355 @@
+{
+  "version": "6.0",
+  "nxVersion": "16.3.2",
+  "deps": {
+    "@nestjs/common": "^9.1.1",
+    "@nestjs/config": "^2.3.2",
+    "@nestjs/core": "^9.1.1",
+    "@nestjs/mapped-types": "^1.2.2",
+    "@nestjs/platform-express": "^9.1.1",
+    "@prisma/client": "^4.16.1",
+    "axios": "^1.0.0",
+    "nest-commander": "^3.7.1",
+    "next": "13.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0",
+    "sqlite3": "^5.1.6",
+    "tslib": "^2.3.0",
+    "@nestjs/schematics": "^9.1.0",
+    "@nestjs/testing": "^9.1.1",
+    "@nx/cypress": "16.3.2",
+    "@nx/eslint-plugin": "16.3.2",
+    "@nx/jest": "16.3.2",
+    "@nx/js": "16.3.2",
+    "@nx/linter": "16.3.2",
+    "@nx/nest": "16.3.2",
+    "@nx/next": "^16.3.2",
+    "@nx/node": "16.3.2",
+    "@nx/react": "16.3.2",
+    "@nx/webpack": "16.3.2",
+    "@nx/workspace": "16.3.2",
+    "@testing-library/react": "14.0.0",
+    "@types/jest": "^29.4.0",
+    "@types/node": "18.14.2",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.4.1",
+    "cypress": "^12.11.0",
+    "daisyui": "^3.0.3",
+    "eslint": "~8.15.0",
+    "eslint-config-next": "13.4.1",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jest": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "nx": "16.3.2",
+    "nx-cloud": "latest",
+    "postcss": "^8.4.24",
+    "prettier": "^2.6.2",
+    "prisma": "^4.16.1",
+    "react-hook-form": "^7.49.3",
+    "tailwindcss": "^3.3.2",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.0.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "projectFileMap": {
+    "api": [
+      {
+        "file": "apps/api/.env",
+        "hash": "13754634338795050336"
+      },
+      {
+        "file": "apps/api/.eslintrc.json",
+        "hash": "13800677001662881425"
+      },
+      {
+        "file": "apps/api/jest.config.ts",
+        "hash": "9483968714649439783"
+      },
+      {
+        "file": "apps/api/prisma/schema.prisma",
+        "hash": "1991646957166937152"
+      },
+      {
+        "file": "apps/api/project.json",
+        "hash": "7685801211558443305"
+      },
+      {
+        "file": "apps/api/src/app/app.controller.spec.ts",
+        "hash": "9499997688052526633",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/app/app.controller.ts",
+        "hash": "9005150069945785676",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/app/app.module.ts",
+        "hash": "2050249127750934179",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/app/app.service.spec.ts",
+        "hash": "8587461140686713758",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/app/app.service.ts",
+        "hash": "9967902337593410053",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/main.ts",
+        "hash": "8712291870623454687",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@nestjs/core"
+        ]
+      },
+      {
+        "file": "apps/api/src/parent-items/parent-items.controller.spec.ts",
+        "hash": "15639175999730182875",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/parent-items/parent-items.controller.ts",
+        "hash": "13651229888454089368",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/parent-items/parent-items.module.ts",
+        "hash": "11273162124271602361",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/parent-items/parent-items.service.spec.ts",
+        "hash": "5755887918878599915",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/parent-items/parent-items.service.ts",
+        "hash": "4497475444156610539",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@prisma/client"
+        ]
+      },
+      {
+        "file": "apps/api/src/prisma.service.ts",
+        "hash": "12479199743099444080",
+        "deps": [
+          "npm:@nestjs/common",
+          "npm:@prisma/client"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/dto/create-purchase-order.dto.ts",
+        "hash": "4539112693634888487"
+      },
+      {
+        "file": "apps/api/src/purchase-orders/dto/update-purchase-order.dto.ts",
+        "hash": "16258543996323977025",
+        "deps": [
+          "npm:@nestjs/mapped-types"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/entities/purchase-order.entity.ts",
+        "hash": "4410403084236254531"
+      },
+      {
+        "file": "apps/api/src/purchase-orders/purchase-orders.controller.spec.ts",
+        "hash": "15466250649914147354",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/purchase-orders.controller.ts",
+        "hash": "11407747980522597351",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/purchase-orders.module.ts",
+        "hash": "5754495727051578982",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/purchase-orders.service.spec.ts",
+        "hash": "7751361163092330989",
+        "deps": [
+          "npm:@nestjs/testing"
+        ]
+      },
+      {
+        "file": "apps/api/src/purchase-orders/purchase-orders.service.ts",
+        "hash": "10004268376064960021",
+        "deps": [
+          "npm:@nestjs/common"
+        ]
+      },
+      {
+        "file": "apps/api/tsconfig.app.json",
+        "hash": "18146536384686769023"
+      },
+      {
+        "file": "apps/api/tsconfig.json",
+        "hash": "3490524966360018312"
+      },
+      {
+        "file": "apps/api/tsconfig.spec.json",
+        "hash": "11550347367511341917"
+      },
+      {
+        "file": "apps/api/webpack.config.js",
+        "hash": "10619490397189790225",
+        "deps": [
+          "npm:@nx/webpack"
+        ]
+      }
+    ],
+    "client": [
+      {
+        "file": "apps/client/.eslintrc.json",
+        "hash": "5700612083056169826"
+      },
+      {
+        "file": "apps/client/app/global.css",
+        "hash": "2866083945719690482"
+      },
+      {
+        "file": "apps/client/app/layout.tsx",
+        "hash": "13270045055201534799",
+        "deps": [
+          "npm:next"
+        ]
+      },
+      {
+        "file": "apps/client/app/page.tsx",
+        "hash": "9912184356005933119"
+      },
+      {
+        "file": "apps/client/app/parent-items/page.tsx",
+        "hash": "14020909706472016861"
+      },
+      {
+        "file": "apps/client/app/purchase-orders/page.tsx",
+        "hash": "9112034471653311065",
+        "deps": [
+          "npm:react",
+          "npm:next"
+        ]
+      },
+      {
+        "file": "apps/client/components/CreatePurchaseOrder/CreatePurchaseOrder.tsx",
+        "hash": "2503225040500127480",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "apps/client/components/CreatePurchaseOrder/CreatePurchaseOrderRHF.tsx",
+        "hash": "13898951694572217908",
+        "deps": [
+          "npm:react",
+          "npm:react-hook-form"
+        ]
+      },
+      {
+        "file": "apps/client/index.d.ts",
+        "hash": "5498222895072842432"
+      },
+      {
+        "file": "apps/client/jest.config.ts",
+        "hash": "17885712224817232223"
+      },
+      {
+        "file": "apps/client/next-env.d.ts",
+        "hash": "5909181270615354023"
+      },
+      {
+        "file": "apps/client/next.config.js",
+        "hash": "4640182932892698362",
+        "deps": [
+          "npm:@nx/next"
+        ]
+      },
+      {
+        "file": "apps/client/postcss.config.js",
+        "hash": "1579725330904862112"
+      },
+      {
+        "file": "apps/client/project.json",
+        "hash": "5896460422602339743"
+      },
+      {
+        "file": "apps/client/public/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "apps/client/public/favicon.ico",
+        "hash": "9303420814833116677"
+      },
+      {
+        "file": "apps/client/tailwind.config.js",
+        "hash": "12870708651353965577",
+        "deps": [
+          "npm:daisyui"
+        ]
+      },
+      {
+        "file": "apps/client/tsconfig.json",
+        "hash": "17711977081705759732"
+      },
+      {
+        "file": "apps/client/tsconfig.spec.json",
+        "hash": "6922413205408300107"
+      },
+      {
+        "file": "apps/client/app/purchase-order-details/[id]/page.tsx",
+        "hash": "2500083190951922518",
+        "deps": [
+          "npm:react",
+          "npm:next",
+          "npm:react-hook-form"
+        ]
+      }
+    ]
+  }
+}

@@ -1,14 +1,34 @@
-interface Item {
+export interface Item {
   id: number;
+  parent_item_id: number;
   name: string;
   sku: string;
-}
+  price: number;
+  quantity: number;
+  created_at: Date;
+  updated_at?: Date;
+};
 
-interface ParentItem {
+export type ParentItem = {
   id: number;
   name: string;
   items: Item[];
-}
+  created_at: Date;
+  updated_at?: Date;
+};
+
+
+// interface Item {
+//   id: number;
+//   name: string;
+//   sku: string;
+// }
+
+// interface ParentItem {
+//   id: number;
+//   name: string;
+//   items: Item[];
+// }
 
 async function getData(): Promise<ParentItem[]> {
   const res = await fetch('http://localhost:3100/api/parent-items', {cache: 'no-cache'});

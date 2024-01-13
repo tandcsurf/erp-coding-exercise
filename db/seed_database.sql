@@ -28,7 +28,8 @@ VALUES (1, 'Red shirt', 'sh-1', 10.00, 10),
        (1, 'Green shirt', 'sh-3', 10.00, 10),
        (2, 'Red pants', 'pa-1', 20.00, 10),
        (2, 'Blue pants', 'pa-2', 20.00, 10),
-       (2, 'Green pants', 'pa-3', 20.00, 10);
+       (2, 'Green pants', 'pa-3', 20.00, 10),
+       (2, 'Chartreuse Pants', 'pa-4', 20.00, 10);
 
 DROP TABLE IF EXISTS purchase_orders;
 CREATE TABLE purchase_orders
