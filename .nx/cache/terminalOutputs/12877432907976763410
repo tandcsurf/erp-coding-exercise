@@ -1,0 +1,13 @@
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 15.2 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./apps/api/src/purchase-orders/purchase-orders.service.ts:[32m[1m60:35[22m[39m[1m[39m[22m
+[90mTS2339: [39mProperty 'id' does not exist on type 'CreatePurchaseOrderLineItemDto'.
+  [0m [90m 58 |[39m         purchase_order_line_items[33m:[39m {[0m
+  [0m [90m 59 |[39m           update[33m:[39m purchase_order_line_items[33m?[39m[33m.[39mmap(lineItem [33m=>[39m ({[0m
+  [0m[31m[1m>[22m[39m[90m 60 |[39m             where[33m:[39m { id[33m:[39m lineItem[33m.[39mid }[33m,[39m[0m
+  [0m [90m    |[39m                                   [31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+  [0m [90m 61 |[39m             data[33m:[39m lineItem[33m,[39m[0m
+  [0m [90m 62 |[39m           }))[33m,[39m[0m
+  [0m [90m 63 |[39m         }[33m,[39m[0m
+
+webpack compiled with [1m[31m1 error[39m[22m (40f4c600f29a3676)

@@ -27,22 +27,44 @@ export interface PurchaseOrders {
 export default function Index() {
   const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrders[]>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('http://localhost:3100/api/purchase-orders', { cache: 'no-cache' });
-        if (!res.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await res.json();
-        setPurchaseOrders(data);
-      } catch (error) {
-        console.error(error);
+  const fetchData = async () => {
+    try {
+      const res = await fetch('http://localhost:3100/api/purchase-orders', { cache: 'no-cache' });
+      if (!res.ok) {
+        throw new Error('Failed to fetch data');
       }
-    };
+      const data = await res.json();
+      setPurchaseOrders(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
+
+  useEffect(() => {
     fetchData();
   }, []);
+
+  const handleRemove = async (id: string) => {
+
+    try {
+      const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete the purchase order');
+      }
+
+      fetchData();
+    
+      console.log('Purchase order deleted successfully');
+      // Optionally, redirect the user after successful deletion
+      // router.push('/path-to-redirect');
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
@@ -70,7 +92,7 @@ export default function Index() {
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{new Date(purchaseOrder.order_date).toLocaleDateString()}</td>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{new Date(purchaseOrder.expected_delivery_date).toLocaleDateString()}</td>
              
-<td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+              <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                 <ul>
                   {purchaseOrder.purchase_order_line_items.map((lineItem) => (
                     <li key={lineItem.id}>
@@ -88,6 +110,11 @@ export default function Index() {
                 <Link href={`/purchase-order-details/${purchaseOrder.id}`}>
                   Modify
                 </Link>
+              </td>
+              <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                <button onClick={() => handleRemove(purchaseOrder.id)}>
+                  Remove
+                </button>
               </td>
             </tr>
           ))}

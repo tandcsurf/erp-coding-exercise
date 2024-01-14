@@ -176,11 +176,11 @@
       },
       {
         "file": "apps/api/src/purchase-orders/dto/create-purchase-order.dto.ts",
-        "hash": "4539112693634888487"
+        "hash": "13810864043895763517"
       },
       {
         "file": "apps/api/src/purchase-orders/dto/update-purchase-order.dto.ts",
-        "hash": "16258543996323977025",
+        "hash": "12045256456344317644",
         "deps": [
           "npm:@nestjs/mapped-types"
         ]
@@ -219,7 +219,7 @@
       },
       {
         "file": "apps/api/src/purchase-orders/purchase-orders.service.ts",
-        "hash": "10004268376064960021",
+        "hash": "5462758046229009768",
         "deps": [
           "npm:@nestjs/common"
         ]
@@ -270,7 +270,7 @@
       },
       {
         "file": "apps/client/app/purchase-orders/page.tsx",
-        "hash": "9112034471653311065",
+        "hash": "13961860353823647969",
         "deps": [
           "npm:react",
           "npm:next"
@@ -285,7 +285,7 @@
       },
       {
         "file": "apps/client/components/CreatePurchaseOrder/CreatePurchaseOrderRHF.tsx",
-        "hash": "13898951694572217908",
+        "hash": "751498940929690428",
         "deps": [
           "npm:react",
           "npm:react-hook-form"
@@ -343,7 +343,7 @@
       },
       {
         "file": "apps/client/app/purchase-order-details/[id]/page.tsx",
-        "hash": "2500083190951922518",
+        "hash": "13728250331960394755",
         "deps": [
           "npm:react",
           "npm:next",

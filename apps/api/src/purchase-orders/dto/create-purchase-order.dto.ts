@@ -1,4 +1,5 @@
 class CreatePurchaseOrderLineItemDto {
+  id: number;
   item_id: number;
   quantity: number;
   unit_cost: string;

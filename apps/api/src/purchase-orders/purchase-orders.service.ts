@@ -8,16 +8,10 @@ export class PurchaseOrdersService {
   constructor(private prisma: PrismaService) {
   }
 
-  // create(createPurchaseOrderDto: CreatePurchaseOrderDto) {
-  //   return 'This action adds a new purchaseOrder';
-  // }
   async create(createPurchaseOrderDto: CreatePurchaseOrderDto) {
-    // Destructure the DTO to separate purchase order data and line items
     const { purchase_order_line_items, ...purchaseOrderData } = createPurchaseOrderDto;
 
-    // Use a transaction if your logic involves multiple write operations
     return this.prisma.$transaction(async (prisma) => {
-      // Create the purchase order
       const purchaseOrder = await prisma.purchaseOrders.create({
         data: {
           ...purchaseOrderData,
@@ -42,9 +36,10 @@ export class PurchaseOrdersService {
     });
   }
 
-  update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
-    return `This action updates a #${id} purchaseOrder`;
-  }
+  // update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
+  //   return `This action updates a #${id} purchaseOrder`;
+  // }
+  
   // async update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
   //   return this.prisma.purchaseOrders.update({
   //     where: { id },
@@ -52,6 +47,35 @@ export class PurchaseOrdersService {
   //     include: { purchase_order_line_items: true }
   //   });
   // }
+
+  async update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
+    const { purchase_order_line_items, ...otherData } = updatePurchaseOrderDto;
+
+    function convertLineItems(lineItems) {
+      console.log(lineItems, "lineItems");
+      return lineItems.map(item => ({
+        id: item.id ? parseInt(item.id) : undefined,
+        quantity: item.quantity ? parseInt(item.quantity) : undefined,
+        unit_cost: item.unit_cost ? parseFloat(item.unit_cost) : undefined,
+      }));
+    }
+
+    const convertedLineItems = convertLineItems(purchase_order_line_items)
+
+    return this.prisma.purchaseOrders.update({
+      where: { id },
+      data: {
+        ...otherData,
+        purchase_order_line_items: {
+          update: convertedLineItems?.map(lineItem => ({
+            where: { id: lineItem.id },
+            data: lineItem,
+          })),
+        },
+      },
+      include: { purchase_order_line_items: true },
+    });
+  }
 
   async remove(id: number) {
     return this.prisma.purchaseOrders.delete({

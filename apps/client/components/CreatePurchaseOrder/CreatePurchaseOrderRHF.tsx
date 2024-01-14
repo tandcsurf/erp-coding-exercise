@@ -49,8 +49,20 @@ const PurchaseOrderForm = () => {
   };
 
   const onSubmit = async (data) => {
+
+    const convertToDates = (orderData) => {
+      return {
+        ...orderData,
+        order_date: new Date(orderData.order_date),
+        expected_delivery_date: new Date(orderData.expected_delivery_date),
+        // If there are other date fields in line items or elsewhere, convert them similarly
+      };
+    };
+
+    const updatedData = convertToDates(data);
+
     const purchaseOrderData = {
-      ...data,
+      ...updatedData,
       purchase_order_line_items: lineItems.map(({ item, quantity }) => ({
         item_id: item.id,
         quantity,
