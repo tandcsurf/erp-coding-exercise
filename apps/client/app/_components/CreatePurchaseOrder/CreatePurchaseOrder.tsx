@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { Item, ParentItem } from '../../app/parent-items/page';
+import { Item, ParentItem } from '../../parent-items/page';
 
 interface LineItem {
   item: Item;

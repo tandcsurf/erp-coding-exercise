@@ -36,23 +36,10 @@ export class PurchaseOrdersService {
     });
   }
 
-  // update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
-  //   return `This action updates a #${id} purchaseOrder`;
-  // }
-  
-  // async update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
-  //   return this.prisma.purchaseOrders.update({
-  //     where: { id },
-  //     data: updatePurchaseOrderDto,
-  //     include: { purchase_order_line_items: true }
-  //   });
-  // }
-
   async update(id: number, updatePurchaseOrderDto: UpdatePurchaseOrderDto) {
     const { purchase_order_line_items, ...otherData } = updatePurchaseOrderDto;
 
     function convertLineItems(lineItems) {
-      console.log(lineItems, "lineItems");
       return lineItems.map(item => ({
         id: item.id ? parseInt(item.id) : undefined,
         quantity: item.quantity ? parseInt(item.quantity) : undefined,

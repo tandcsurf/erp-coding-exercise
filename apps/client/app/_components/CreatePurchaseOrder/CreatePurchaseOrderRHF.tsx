@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Item, ParentItem } from '../../app/parent-items/page';
+import { Item, ParentItem } from '../../parent-items/page';
+import { useCreatePurchaseOrder } from '../../_hooks/useCreatePurchaseOrder';
 
 interface LineItem {
   item: Item;
@@ -13,6 +14,7 @@ const PurchaseOrderForm = () => {
   const { register, handleSubmit, control, getValues, formState: { errors } } = useForm();
   const [parentItems, setParentItems] = useState<ParentItem[]>([]);
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const createPurchaseOrder = useCreatePurchaseOrder();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -70,26 +72,7 @@ const PurchaseOrderForm = () => {
       })),
     };
 
-    try {
-      const response = await fetch('http://localhost:3100/api/purchase-orders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(purchaseOrderData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error in form submission');
-      }
-
-      // Handle successful form submission here
-      const responseData = await response.json();
-      console.log(responseData);
-    } catch (error) {
-      console.error(error);
-      // Handle submission error here
-    }
+    createPurchaseOrder.mutate(purchaseOrderData);
   };
 
   const today = new Date().toISOString().split("T")[0];

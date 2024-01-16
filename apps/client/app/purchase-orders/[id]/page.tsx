@@ -3,16 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm, Controller } from 'react-hook-form';
-import { PurchaseOrders, PurchaseOrderLineItems } from '../../purchase-orders/page';
-
-// ... Interfaces for PurchaseOrders and PurchaseOrderLineItems ...
+import { PurchaseOrders, PurchaseOrderLineItems } from '../page';
+import { useRemovePurchaseOrder } from '../../_hooks/useRemovePurchaseOrder';
+import { useUpdatePurchaseOrder } from '../../_hooks/useUpdatePurchaseOrder';
 
 export default function ModifyPurchaseOrderPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const { push } = useRouter();
-  console.log(params, "params", id, "id");
   const { register, handleSubmit, control, getValues, setValue, formState: { errors } } = useForm();
   const [purchaseOrder, setPurchaseOrder] = useState<PurchaseOrders | null>(null);
+  const removePurchaseOrder = useRemovePurchaseOrder();
+  const updatePurchaseOrder = useUpdatePurchaseOrder();
 
   useEffect(() => {
     const fetchPurchaseOrder = async () => {
@@ -43,49 +44,17 @@ export default function ModifyPurchaseOrderPage({ params }: { params: { id: stri
           ...orderData,
           order_date: new Date(orderData.order_date),
           expected_delivery_date: new Date(orderData.expected_delivery_date),
-          // If there are other date fields in line items or elsewhere, convert them similarly
         };
       };
 
       const updatedData = convertToDates(data);
 
-      try {
-        const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedData),
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to update purchase order');
-        }
-  
-        const updatedOrder = await response.json();
-        console.log('Updated Order:', updatedOrder);
-        // Optionally, redirect or perform other actions on successful update
-      } catch (error) {
-        console.error(error);
-      }
+      updatePurchaseOrder.mutate({ id, updatedData });
     };
 
     const handleRemove = async (id: string) => {
-
-      try {
-        const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
-          method: 'DELETE',
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to delete the purchase order');
-        }
-      
-        console.log('Purchase order deleted successfully');
-        push('/purchase-orders');
-      } catch (error) {
-        console.error(error);
-      }
+      removePurchaseOrder.mutate(id);
+      push('/purchase-orders');
     }
       
     const formatDate = (date: Date) => {

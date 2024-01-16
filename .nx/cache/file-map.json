@@ -13,6 +13,7 @@
     "next": "13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-query": "^3.39.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "sqlite3": "^5.1.6",
@@ -180,10 +181,7 @@
       },
       {
         "file": "apps/api/src/purchase-orders/dto/update-purchase-order.dto.ts",
-        "hash": "12045256456344317644",
-        "deps": [
-          "npm:@nestjs/mapped-types"
-        ]
+        "hash": "14759959771294347570"
       },
       {
         "file": "apps/api/src/purchase-orders/entities/purchase-order.entity.ts",
@@ -219,7 +217,7 @@
       },
       {
         "file": "apps/api/src/purchase-orders/purchase-orders.service.ts",
-        "hash": "5462758046229009768",
+        "hash": "5074647247029901130",
         "deps": [
           "npm:@nestjs/common"
         ]
@@ -270,7 +268,7 @@
       },
       {
         "file": "apps/client/app/purchase-orders/page.tsx",
-        "hash": "13961860353823647969",
+        "hash": "12733599034444465843",
         "deps": [
           "npm:react",
           "npm:next"
@@ -285,7 +283,7 @@
       },
       {
         "file": "apps/client/components/CreatePurchaseOrder/CreatePurchaseOrderRHF.tsx",
-        "hash": "751498940929690428",
+        "hash": "6449259422433666841",
         "deps": [
           "npm:react",
           "npm:react-hook-form"
@@ -342,12 +340,70 @@
         "hash": "6922413205408300107"
       },
       {
-        "file": "apps/client/app/purchase-order-details/[id]/page.tsx",
-        "hash": "13728250331960394755",
+        "file": "apps/client/app/_hooks/useFetchPurchaseOrders.ts",
+        "hash": "17366778966190599913",
+        "deps": [
+          "npm:react-query"
+        ]
+      },
+      {
+        "file": "apps/client/app/purchase-orders/layout.tsx",
+        "hash": "18381511386336876373",
+        "deps": [
+          "npm:react-query"
+        ]
+      },
+      {
+        "file": "apps/client/app/_hooks/useCreatePurchaseOrder.ts",
+        "hash": "10117423527927436757",
+        "deps": [
+          "npm:react-query"
+        ]
+      },
+      {
+        "file": "apps/client/app/components/CreatePurchaseOrder/CreatePurchaseOrder.tsx",
+        "hash": "11442024814273463972",
+        "deps": [
+          "npm:react"
+        ]
+      },
+      {
+        "file": "apps/client/app/components/CreatePurchaseOrder/CreatePurchaseOrderRHF.tsx",
+        "hash": "14105462571932234263",
+        "deps": [
+          "npm:react",
+          "npm:react-hook-form"
+        ]
+      },
+      {
+        "file": "apps/client/app/_components/CreatePurchaseOrder/CreatePurchaseOrderRHF.tsx",
+        "hash": "17314276045467999522",
+        "deps": [
+          "npm:react",
+          "npm:react-hook-form"
+        ]
+      },
+      {
+        "file": "apps/client/app/_hooks/useRemovePurchaseOrder.ts",
+        "hash": "15572843561079708196",
+        "deps": [
+          "npm:react-query"
+        ]
+      },
+      {
+        "file": "apps/client/app/purchase-orders/[id]/page.tsx",
+        "hash": "9505140674841974714",
         "deps": [
           "npm:react",
           "npm:next",
           "npm:react-hook-form"
+        ]
+      },
+      {
+        "file": "apps/client/app/_hooks/useUpdatePurchaseOrder.ts",
+        "hash": "13659774040803614160",
+        "deps": [
+          "npm:react-query"
         ]
       }
     ]

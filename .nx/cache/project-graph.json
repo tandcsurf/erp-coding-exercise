@@ -4940,6 +4940,15 @@
         "hash": "sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A=="
       }
     },
+    "npm:broadcast-channel": {
+      "type": "npm",
+      "name": "npm:broadcast-channel",
+      "data": {
+        "version": "3.7.0",
+        "packageName": "broadcast-channel",
+        "hash": "sha512-cIAKJXAxGJceNZGTZSBzMxzyOn72cVgPnKx4dc6LRjQgbaJUQqhy5rzL3zbMxkMWsGKkv2hSFkPRMEXfoMZ2Mg=="
+      }
+    },
     "npm:browserslist": {
       "type": "npm",
       "name": "npm:browserslist",
@@ -8972,6 +8981,15 @@
         "hash": "sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg=="
       }
     },
+    "npm:js-sha3": {
+      "type": "npm",
+      "name": "npm:js-sha3",
+      "data": {
+        "version": "0.8.0",
+        "packageName": "js-sha3",
+        "hash": "sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q=="
+      }
+    },
     "npm:js-tokens": {
       "type": "npm",
       "name": "npm:js-tokens",
@@ -9494,6 +9512,15 @@
         "hash": "sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg=="
       }
     },
+    "npm:match-sorter": {
+      "type": "npm",
+      "name": "npm:match-sorter",
+      "data": {
+        "version": "6.3.1",
+        "packageName": "match-sorter",
+        "hash": "sha512-mxybbo3pPNuA+ZuCUhm5bwNkXrJTbsk5VWbR5wiwz/GC6LIiegBGn2w3O08UG/jdbYLinw51fSQ5xNU1U3MgBw=="
+      }
+    },
     "npm:media-typer": {
       "type": "npm",
       "name": "npm:media-typer",
@@ -9555,6 +9582,15 @@
         "version": "4.0.5",
         "packageName": "micromatch",
         "hash": "sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA=="
+      }
+    },
+    "npm:microseconds": {
+      "type": "npm",
+      "name": "npm:microseconds",
+      "data": {
+        "version": "0.2.0",
+        "packageName": "microseconds",
+        "hash": "sha512-n7DHHMjR1avBbSpsTBj6fmMGh2AGrifVV4e+WYc3Q9lO+xnSZ3NyhcBND3vzzatt05LFhoKFRxrIyklmLlUtyA=="
       }
     },
     "npm:mime": {
@@ -9726,6 +9762,15 @@
         "version": "2.7.0",
         "packageName": "mz",
         "hash": "sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q=="
+      }
+    },
+    "npm:nano-time": {
+      "type": "npm",
+      "name": "npm:nano-time",
+      "data": {
+        "version": "1.0.0",
+        "packageName": "nano-time",
+        "hash": "sha512-flnngywOoQ0lLQOTRNexn2gGSNuM9bKj9RZAWSzhQ+UJYaAFG9bac4DW9VHjUAzrOaIcajHybCTHe/bkvozQqA=="
       }
     },
     "npm:nanoid": {
@@ -10095,6 +10140,15 @@
         "version": "1.1.6",
         "packageName": "object.values",
         "hash": "sha512-FVVTkD1vENCsAcwNs9k6jea2uHC/X0+JcjG8YA60FN5CMaJmG95wT9jek/xX9nornqGRrBkKtzuAu2wuHpKqvw=="
+      }
+    },
+    "npm:oblivious-set": {
+      "type": "npm",
+      "name": "npm:oblivious-set",
+      "data": {
+        "version": "1.0.0",
+        "packageName": "oblivious-set",
+        "hash": "sha512-z+pI07qxo4c2CulUHCDf9lcqDlMSo72N/4rLUpRXf6fu+q8vjt8y0xS+Tlf8NTJDdTXHbdeO1n3MlbctwEoXZw=="
       }
     },
     "npm:obuf": {
@@ -10943,6 +10997,15 @@
         "hash": "sha512-foD6r3juidAT1cOZzpmD/gOKt7fRsDhXXZ0y28+Al1CHgX+AY1qIN9VSIIItXRq1dN68QrRwl1ORFlwjBaAqeQ=="
       }
     },
+    "npm:react-query": {
+      "type": "npm",
+      "name": "npm:react-query",
+      "data": {
+        "version": "3.39.3",
+        "packageName": "react-query",
+        "hash": "sha512-nLfLz7GiohKTJDuT4us4X3h/8unOh+00MLb2yJoGTPjxKs2bc1iDhkNx2bd5MKklXnOD3NrVZ+J2UXujA5In4g=="
+      }
+    },
     "npm:read-cache": {
       "type": "npm",
       "name": "npm:read-cache",
@@ -11040,6 +11103,15 @@
         "version": "0.9.1",
         "packageName": "regjsparser",
         "hash": "sha512-dQUtn90WanSNl+7mQKcXAgZxvUe7Z0SqXlgzv0za4LwiUhyzBC58yQO3liFoUgu8GiJVInAhJjkj1N0EtQ5nkQ=="
+      }
+    },
+    "npm:remove-accents": {
+      "type": "npm",
+      "name": "npm:remove-accents",
+      "data": {
+        "version": "0.4.2",
+        "packageName": "remove-accents",
+        "hash": "sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA=="
       }
     },
     "npm:request-progress": {
@@ -12104,6 +12176,15 @@
         "hash": "sha512-zoWr9ObaxALD3DOPfjPSqxt4fnZiWblxHIgeWqW8x7UqDzEtHEQLzji2cuJYQFCU6KmoJikOYAZlrTHHebjx2w=="
       }
     },
+    "npm:unload": {
+      "type": "npm",
+      "name": "npm:unload",
+      "data": {
+        "version": "2.2.0",
+        "packageName": "unload",
+        "hash": "sha512-B60uB5TNBLtN6/LsgAf3udH9saB5p7gqJwcFfbOEZ8BcBHnGwCf6G/TGiEqkRAxX7zAFIUtzdrXQSdL3Q/wqNA=="
+      }
+    },
     "npm:unpipe": {
       "type": "npm",
       "name": "npm:unpipe",
@@ -12581,6 +12662,11 @@
         "source": "client",
         "target": "npm:daisyui",
         "type": "static"
+      },
+      {
+        "source": "client",
+        "target": "npm:react-query",
+        "type": "static"
       }
     ],
     "api": [
@@ -12602,11 +12688,6 @@
       {
         "source": "api",
         "target": "npm:@prisma/client",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:@nestjs/mapped-types",
         "type": "static"
       },
       {
@@ -19713,6 +19794,48 @@
         "type": "static"
       }
     ],
+    "npm:broadcast-channel": [
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:@babel/runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:detect-node",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:js-sha3",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:microseconds",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:nano-time",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:oblivious-set",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:rimraf",
+        "type": "static"
+      },
+      {
+        "source": "npm:broadcast-channel",
+        "target": "npm:unload",
+        "type": "static"
+      }
+    ],
     "npm:browserslist": [
       {
         "source": "npm:browserslist",
@@ -25912,6 +26035,18 @@
         "type": "static"
       }
     ],
+    "npm:match-sorter": [
+      {
+        "source": "npm:match-sorter",
+        "target": "npm:@babel/runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:match-sorter",
+        "target": "npm:remove-accents",
+        "type": "static"
+      }
+    ],
     "npm:memfs": [
       {
         "source": "npm:memfs",
@@ -26096,6 +26231,13 @@
       {
         "source": "npm:mz",
         "target": "npm:thenify-all",
+        "type": "static"
+      }
+    ],
+    "npm:nano-time": [
+      {
+        "source": "npm:nano-time",
+        "target": "npm:big-integer",
         "type": "static"
       }
     ],
@@ -27840,6 +27982,28 @@
       {
         "source": "npm:react-hook-form",
         "target": "npm:react",
+        "type": "static"
+      }
+    ],
+    "npm:react-query": [
+      {
+        "source": "npm:react-query",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "npm:react-query",
+        "target": "npm:@babel/runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:react-query",
+        "target": "npm:broadcast-channel",
+        "type": "static"
+      },
+      {
+        "source": "npm:react-query",
+        "target": "npm:match-sorter",
         "type": "static"
       }
     ],
@@ -29612,6 +29776,18 @@
       {
         "source": "npm:unique-slug",
         "target": "npm:imurmurhash",
+        "type": "static"
+      }
+    ],
+    "npm:unload": [
+      {
+        "source": "npm:unload",
+        "target": "npm:@babel/runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:unload",
+        "target": "npm:detect-node",
         "type": "static"
       }
     ],

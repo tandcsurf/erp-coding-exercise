@@ -1,15 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreatePurchaseOrderDto } from './create-purchase-order.dto';
-
-// export class UpdatePurchaseOrderDto extends PartialType(
-//   CreatePurchaseOrderDto
-// ) {}
-
 class UpdatePurchaseOrderLineItemDto {
   id: number;
   quantity?: number;
   unit_cost?: number;
-  // Add other fields that might need updating
 }
 
 export class UpdatePurchaseOrderDto {

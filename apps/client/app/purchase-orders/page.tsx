@@ -1,7 +1,9 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
-import CreatePurchaseOrderRHF from "../../components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
+import React from 'react';
+import { useFetchPurchaseOrders } from '../_hooks/useFetchPurchaseOrders';
+import { useRemovePurchaseOrder } from '../_hooks/useRemovePurchaseOrder';
+import CreatePurchaseOrderRHF from "../_components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
 import Link from 'next/link';
 
 export interface PurchaseOrderLineItems {
@@ -25,45 +27,32 @@ export interface PurchaseOrders {
 };
 
 export default function Index() {
-  const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrders[]>([]);
+  const removePurchaseOrder = useRemovePurchaseOrder();
+  // const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrders[]>([]);
 
-  const fetchData = async () => {
-    try {
-      const res = await fetch('http://localhost:3100/api/purchase-orders', { cache: 'no-cache' });
-      if (!res.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const data = await res.json();
-      setPurchaseOrders(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const res = await fetch('http://localhost:3100/api/purchase-orders', { cache: 'no-cache' });
+  //     if (!res.ok) {
+  //       throw new Error('Failed to fetch data');
+  //     }
+  //     const data = await res.json();
+  //     setPurchaseOrders(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  const { data: purchaseOrders, isLoading, error } = useFetchPurchaseOrders();
+
 
   const handleRemove = async (id: string) => {
-
-    try {
-      const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to delete the purchase order');
-      }
-
-      fetchData();
-    
-      console.log('Purchase order deleted successfully');
-      // Optionally, redirect the user after successful deletion
-      // router.push('/path-to-redirect');
-    } catch (error) {
-      console.error(error);
-    }
+    removePurchaseOrder.mutate(id);
   }
 
   const formatCurrency = (amount: number) => {
@@ -85,7 +74,7 @@ export default function Index() {
           </tr>
         </thead>
         <tbody className="bg-white dark:bg-slate-800">
-          {purchaseOrders.map((purchaseOrder) => (
+          {purchaseOrders && purchaseOrders.map((purchaseOrder) => (
             <tr key={purchaseOrder.id}>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{purchaseOrder.id}</td>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{purchaseOrder.vendor_name}</td>
@@ -107,7 +96,7 @@ export default function Index() {
                 )}
               </td>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-                <Link href={`/purchase-order-details/${purchaseOrder.id}`}>
+                <Link href={`/purchase-orders/${purchaseOrder.id}`}>
                   Modify
                 </Link>
               </td>
