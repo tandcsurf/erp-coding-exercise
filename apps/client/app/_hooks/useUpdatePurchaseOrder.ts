@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { PurchaseOrder } from '../purchase-orders/page';
+import { PurchaseOrder } from '../_types/purchaseOrder';
 
 const updatePurchaseOrder = async ({ id, updatedData }: {id: string, updatedData: PurchaseOrder}) => {
   const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {

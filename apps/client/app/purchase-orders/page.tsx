@@ -4,27 +4,8 @@ import React from 'react';
 import { useFetchPurchaseOrders } from '../_hooks/useGetPurchaseOrders';
 import { useRemovePurchaseOrder } from '../_hooks/useRemovePurchaseOrder';
 import CreatePurchaseOrderRHF from "../_components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
+import { PurchaseOrder, PurchaseOrderLineItems } from '../_types/purchaseOrder';
 import Link from 'next/link';
-
-export interface PurchaseOrderLineItems {
-  id: string | number;
-  purchase_order_id: string | number;
-  item_id: string | number;
-  quantity: number;
-  unit_cost: number;
-  created_at: Date;
-  updated_at?: Date;
-};
-
-export interface PurchaseOrder {
-  id: string | number;
-  vendor_name: string;
-  order_date: Date;
-  expected_delivery_date: Date;
-  created_at: Date;
-  updated_at?: Date;
-  purchase_order_line_items: PurchaseOrderLineItems[];
-};
 
 export default function Index() {
   const removePurchaseOrder = useRemovePurchaseOrder();

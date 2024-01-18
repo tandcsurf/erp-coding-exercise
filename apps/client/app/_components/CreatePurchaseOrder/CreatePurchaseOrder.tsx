@@ -26,7 +26,7 @@ const PurchaseOrderForm = () => {
         setParentItems(data);
       } catch (error) {
         console.error(error);
-        // Handle fetch error
+        // Error logging vendor call here
       }
     };
 
@@ -82,10 +82,9 @@ const PurchaseOrderForm = () => {
 
       const data = await response.json();
       console.log(data);
-      // Handle response
     } catch (error) {
       console.error(error);
-      // Handle error
+      // Error logging vendor call here
     }
   };
 

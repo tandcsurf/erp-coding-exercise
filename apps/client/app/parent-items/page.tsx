@@ -17,19 +17,6 @@ export type ParentItem = {
   updated_at?: Date;
 };
 
-
-// interface Item {
-//   id: number;
-//   name: string;
-//   sku: string;
-// }
-
-// interface ParentItem {
-//   id: number;
-//   name: string;
-//   items: Item[];
-// }
-
 async function getData(): Promise<ParentItem[]> {
   const res = await fetch('http://localhost:3100/api/parent-items', {cache: 'no-cache'});
   if (!res.ok) {

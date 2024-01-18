@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useForm, Controller, FieldValues } from 'react-hook-form';
-import { PurchaseOrder } from '../../purchase-orders/page'; // Adjust the import path as needed
-import { useUpdatePurchaseOrder } from '../../_hooks/useUpdatePurchaseOrder'; // Adjust the import path as needed
+import { PurchaseOrder } from '../../_types/purchaseOrder';
+import { useUpdatePurchaseOrder } from '../../_hooks/useUpdatePurchaseOrder';
+import { formatDateISO } from '../../_utilities/formatDateISO';
 
 interface UpdatePurchaseOrderFormProps {
   id: string;
@@ -42,10 +43,6 @@ const UpdatePurchaseOrderForm: React.FC<UpdatePurchaseOrderFormProps> = ({ id, p
       }
     };
 
-  const formatDate = (date: Date) => {
-    return new Date(date).toISOString().split('T')[0];
-  };
-
   if (!purchaseOrder) {
     return <div>Loading...</div>;
   }
@@ -67,7 +64,7 @@ const UpdatePurchaseOrderForm: React.FC<UpdatePurchaseOrderFormProps> = ({ id, p
       <input
         type="date"
         id="orderDate"
-        defaultValue={formatDate(purchaseOrder.order_date)}
+        defaultValue={formatDateISO(purchaseOrder.order_date)}
         {...register("order_date", { required: "Order date is required" })}
       />
       {errors.order_date && <p>{errors.order_date.message?.toString()}</p>}

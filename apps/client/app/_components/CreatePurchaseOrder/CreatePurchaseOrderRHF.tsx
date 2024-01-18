@@ -12,8 +12,8 @@ interface LineItem {
 
 interface PurchaseOrderFormData {
   vendor_name: string;
-  order_date: string; // use string here because the form will provide a string
-  expected_delivery_date: string; // same here
+  order_date: string;
+  expected_delivery_date: string;
 };
 
 const PurchaseOrderForm = () => {
@@ -33,6 +33,7 @@ const PurchaseOrderForm = () => {
         setParentItems(data);
       } catch (error) {
         console.error(error);
+        // Error logging vendor call here
       }
     };
     fetchData();

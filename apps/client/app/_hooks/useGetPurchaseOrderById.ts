@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { PurchaseOrder } from '../purchase-orders/page';
+import { PurchaseOrder } from '../_types/purchaseOrder';
 
 const getPurchaseOrderById = async (id: string) => {
   const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`);
