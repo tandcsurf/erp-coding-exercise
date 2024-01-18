@@ -12,7 +12,7 @@ async function migrate() {
       process.exit(1);
     }
   });
-  console.log('Database seeded');
+  console.log('Database seeded!');
 }
 
 migrate()
