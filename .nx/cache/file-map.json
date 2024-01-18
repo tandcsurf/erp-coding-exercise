@@ -318,7 +318,7 @@
       },
       {
         "file": "apps/client/app/purchase-orders/[id]/page.tsx",
-        "hash": "12574128358974079283",
+        "hash": "4210525598087561134",
         "deps": [
           "npm:react",
           "npm:next"
@@ -333,7 +333,7 @@
       },
       {
         "file": "apps/client/app/purchase-orders/page.tsx",
-        "hash": "7036904088106001235",
+        "hash": "9477282729243272539",
         "deps": [
           "npm:react",
           "npm:next"

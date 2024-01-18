@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useRemovePurchaseOrder } from '../../_hooks/useRemovePurchaseOrder';
@@ -13,13 +13,25 @@ export default function ModifyPurchaseOrderPage({ params }: { params: { id: stri
   const router = useRouter();
   const { data: purchaseOrder, isLoading, isError, error } = useGetPurchaseOrderById(id);
   const removePurchaseOrder = useRemovePurchaseOrder();
+  const [removalError, setRemovalError] = useState<string | null>(null);
 
   const handleRemove = async () => {
-    removePurchaseOrder.mutate(id, {
-      onSuccess: () => {
-        router.push('/purchase-orders');
-      },
-    });
+    // Note: prob nicer to replace this with a modal
+    if (window.confirm('Are you sure you want to remove this purchase order?')) {
+      removePurchaseOrder.mutate(id, {
+        onSuccess: () => {
+          router.push('/purchase-orders');
+        },
+        onError: (error: unknown) => {
+          // Error handling
+          if (error instanceof Error) {
+            setRemovalError(error.message);
+          } else {
+            setRemovalError('An error occurred while removing the order.');
+          }
+        },
+      });
+    }
   };
 
   if (isLoading) {
@@ -66,6 +78,7 @@ export default function ModifyPurchaseOrderPage({ params }: { params: { id: stri
       </div>
       <div className="mb-20">
         <UpdatePurchaseOrderForm purchaseOrder={purchaseOrder} id={id} />
+        {removalError && <p>{removalError}</p>}
         <button className="bg-white px-2 rounded-md" onClick={handleRemove}>Remove Purchase Order</button>
       </div>
     </>

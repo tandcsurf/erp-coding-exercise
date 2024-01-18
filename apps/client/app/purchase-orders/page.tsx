@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useFetchPurchaseOrders } from '../_hooks/useGetPurchaseOrders';
 import { useRemovePurchaseOrder } from '../_hooks/useRemovePurchaseOrder';
 import CreatePurchaseOrderRHF from "../_components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
@@ -10,11 +10,22 @@ import Link from 'next/link';
 export default function Index() {
   const removePurchaseOrder = useRemovePurchaseOrder();
   const { data: purchaseOrders, isLoading, isError, error } = useFetchPurchaseOrders();
-
+  const [removalError, setRemovalError] = useState<string | null>(null);
 
   const handleRemove = async (id: string | number) => {
-    removePurchaseOrder.mutate(id);
-  }
+    // Note: prob nicer to replace this with a modal
+    if (window.confirm('Are you sure you want to remove this purchase order?')) {
+      removePurchaseOrder.mutate(id, {
+        onError: (error: unknown) => {
+          if (error instanceof Error) {
+            setRemovalError(error.message);
+          } else {
+            setRemovalError('An error occurred while removing the order.');
+          }
+        },
+      });
+    }
+  };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
@@ -80,6 +91,7 @@ export default function Index() {
           )}
         </tbody>
       </table>
+      {removalError && <p>{removalError}</p>}
       <div className="mb-20">
         <CreatePurchaseOrderRHF />
       </div>
