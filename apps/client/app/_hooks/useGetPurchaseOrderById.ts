@@ -10,7 +10,6 @@ const getPurchaseOrderById = async (id: string) => {
 };
 
 export const useGetPurchaseOrderById = (id: string) => {
-  console.log(id, "id")
   return useQuery<PurchaseOrder, Error>(['purchaseOrder', id], () => getPurchaseOrderById(id), {
     enabled: !!id,
   });

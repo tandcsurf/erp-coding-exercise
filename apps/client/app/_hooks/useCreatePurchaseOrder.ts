@@ -33,5 +33,10 @@ export function useCreatePurchaseOrder() {
     onSuccess: () => {
       queryClient.invalidateQueries('purchaseOrders');
     },
+    onError: (error: unknown) => {
+      const errorMessage = (error as Error).message;
+      console.error('Mutation error:', errorMessage);
+      // error logging vendor call here
+    },
   });
 }

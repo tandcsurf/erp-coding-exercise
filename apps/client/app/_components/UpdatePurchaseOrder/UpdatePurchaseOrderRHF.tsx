@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, Controller, FieldValues } from 'react-hook-form';
 import { PurchaseOrder } from '../../_types/purchaseOrder';
 import { useUpdatePurchaseOrder } from '../../_hooks/useUpdatePurchaseOrder';
@@ -12,6 +12,7 @@ interface UpdatePurchaseOrderFormProps {
 const UpdatePurchaseOrderForm: React.FC<UpdatePurchaseOrderFormProps> = ({ id, purchaseOrder }) => {
   const { register, handleSubmit, control, setValue, getValues, formState: { errors } } = useForm();
   const updatePurchaseOrder = useUpdatePurchaseOrder();
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   useEffect(() => {
     if (purchaseOrder) {
@@ -39,7 +40,18 @@ const UpdatePurchaseOrderForm: React.FC<UpdatePurchaseOrderFormProps> = ({ id, p
           }),
         };
       
-        updatePurchaseOrder.mutate({ id, updatedData });
+        updatePurchaseOrder.mutate({ id, updatedData }, {
+          onSuccess: () => {
+            setSubmissionError(null);
+          },
+          onError: (error: unknown) => {
+            if (error instanceof Error) {
+              setSubmissionError(error.message);
+            } else {
+              setSubmissionError('An error occurred while updating the order.');
+            }
+          }
+        });
       }
     };
 
@@ -113,7 +125,7 @@ const UpdatePurchaseOrderForm: React.FC<UpdatePurchaseOrderFormProps> = ({ id, p
           </div>
         ))}
       </div>
-
+      {submissionError && <p>{submissionError}</p>}
       <button className="bg-white px-2 rounded-md mb-2" type="submit">Update Purchase Order</button>
     </form>
   );

@@ -4,7 +4,7 @@ import React from 'react';
 import { useFetchPurchaseOrders } from '../_hooks/useGetPurchaseOrders';
 import { useRemovePurchaseOrder } from '../_hooks/useRemovePurchaseOrder';
 import CreatePurchaseOrderRHF from "../_components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
-import { PurchaseOrder, PurchaseOrderLineItems } from '../_types/purchaseOrder';
+import { PurchaseOrder } from '../_types/purchaseOrder';
 import Link from 'next/link';
 
 export default function Index() {

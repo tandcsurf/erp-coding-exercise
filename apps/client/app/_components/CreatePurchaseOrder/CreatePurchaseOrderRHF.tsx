@@ -20,6 +20,7 @@ const PurchaseOrderForm = () => {
   const { register, handleSubmit, control, getValues, formState: { errors } } = useForm<PurchaseOrderFormData>();
   const [parentItems, setParentItems] = useState<ParentItem[]>([]);
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const createPurchaseOrder = useCreatePurchaseOrder();
 
   useEffect(() => {
@@ -69,7 +70,16 @@ const PurchaseOrderForm = () => {
       })),
     };
 
-    createPurchaseOrder.mutate(updatedData);
+    createPurchaseOrder.mutate(updatedData, {
+      onSuccess: () => {
+        // Handle successful submission, e.g., reset the form
+        setSubmissionError(null);
+      },
+      onError: (error) => {
+        // Handle error scenarios, set the error message
+        setSubmissionError(error.message || 'An error occurred while submitting the form.');
+      } 
+    });
   };
 
   const today = new Date().toISOString().split("T")[0];
@@ -151,6 +161,7 @@ const PurchaseOrderForm = () => {
             </fieldset>
           </div>
         </div>
+        {submissionError && <p>{submissionError}</p>}
         <button type="submit" className="bg-white px-2 rounded-md">Submit Order</button>
       </form>
   );

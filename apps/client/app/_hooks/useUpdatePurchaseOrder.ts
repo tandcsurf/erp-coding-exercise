@@ -22,7 +22,9 @@ export function useUpdatePurchaseOrder() {
       queryClient.invalidateQueries(['purchaseOrder', variables.id]);
       queryClient.invalidateQueries('purchaseOrders');
     },
+    onError: (error: unknown) => {
+      const errorMessage = (error as Error).message;
+      console.error('Mutation error:', errorMessage);
+    },
   });
 }
-
-
