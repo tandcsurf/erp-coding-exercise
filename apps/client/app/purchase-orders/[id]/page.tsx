@@ -23,7 +23,6 @@ export default function ModifyPurchaseOrderPage({ params }: { params: { id: stri
           router.push('/purchase-orders');
         },
         onError: (error: unknown) => {
-          // Error handling
           if (error instanceof Error) {
             setRemovalError(error.message);
           } else {

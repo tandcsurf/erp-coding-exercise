@@ -72,13 +72,15 @@ const PurchaseOrderForm = () => {
 
     createPurchaseOrder.mutate(updatedData, {
       onSuccess: () => {
-        // Handle successful submission, e.g., reset the form
         setSubmissionError(null);
       },
-      onError: (error) => {
-        // Handle error scenarios, set the error message
-        setSubmissionError(error.message || 'An error occurred while submitting the form.');
-      } 
+      onError: (error: unknown) => {
+        if (error instanceof Error) {
+          setSubmissionError(error.message);
+        } else {
+          setSubmissionError('An error occurred while submitting the form.');
+        }
+      }
     });
   };
 
