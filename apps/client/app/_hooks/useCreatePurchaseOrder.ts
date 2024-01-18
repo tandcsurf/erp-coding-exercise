@@ -1,6 +1,19 @@
 import { useMutation, useQueryClient } from 'react-query';
 
-const createPurchaseOrder = async (newOrder) => {
+export interface CreatePurchaseOrderLineItems {
+  item_id: string | number;
+  quantity: number;
+  unit_cost: number;
+};
+
+export interface CreatePurchaseOrder {
+  vendor_name: string;
+  order_date: Date;
+  expected_delivery_date: Date;
+  purchase_order_line_items: CreatePurchaseOrderLineItems[];
+};
+
+const createPurchaseOrder = async (newOrder: CreatePurchaseOrder) => {
   const response = await fetch('http://localhost:3100/api/purchase-orders', {
     method: 'POST',
     headers: {

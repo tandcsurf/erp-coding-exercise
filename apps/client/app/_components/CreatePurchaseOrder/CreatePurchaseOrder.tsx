@@ -54,8 +54,7 @@ const PurchaseOrderForm = () => {
     setLineItems(prevItems => prevItems.filter(item => item.item.id !== itemId));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
 
     const purchaseOrderData = {
       vendor_name: vendorName,

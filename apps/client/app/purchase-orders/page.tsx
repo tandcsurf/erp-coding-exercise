@@ -1,23 +1,23 @@
 'use client'
 
 import React from 'react';
-import { useFetchPurchaseOrders } from '../_hooks/useFetchPurchaseOrders';
+import { useFetchPurchaseOrders } from '../_hooks/useGetPurchaseOrders';
 import { useRemovePurchaseOrder } from '../_hooks/useRemovePurchaseOrder';
 import CreatePurchaseOrderRHF from "../_components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
 import Link from 'next/link';
 
 export interface PurchaseOrderLineItems {
-  id: number;
-  purchase_order_id: number;
-  item_id: number;
+  id: string | number;
+  purchase_order_id: string | number;
+  item_id: string | number;
   quantity: number;
   unit_cost: number;
   created_at: Date;
   updated_at?: Date;
 };
 
-export interface PurchaseOrders {
-  id: number;
+export interface PurchaseOrder {
+  id: string | number;
   vendor_name: string;
   order_date: Date;
   expected_delivery_date: Date;
@@ -28,30 +28,10 @@ export interface PurchaseOrders {
 
 export default function Index() {
   const removePurchaseOrder = useRemovePurchaseOrder();
-  // const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrders[]>([]);
-
-  // const fetchData = async () => {
-  //   try {
-  //     const res = await fetch('http://localhost:3100/api/purchase-orders', { cache: 'no-cache' });
-  //     if (!res.ok) {
-  //       throw new Error('Failed to fetch data');
-  //     }
-  //     const data = await res.json();
-  //     setPurchaseOrders(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const { data: purchaseOrders, isLoading, isError, error } = useFetchPurchaseOrders();
 
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  const { data: purchaseOrders, isLoading, error } = useFetchPurchaseOrders();
-
-
-  const handleRemove = async (id: string) => {
+  const handleRemove = async (id: string | number) => {
     removePurchaseOrder.mutate(id);
   }
 
@@ -59,10 +39,18 @@ export default function Index() {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
   };
 
+  if (isLoading) {
+    return <div>Loading purchase orders...</div>;
+  }
+
+  if (isError) {
+    return <div>Error loading purchase orders: {error.message}</div>;
+  }
+
   return (
     <>
       <h1 className="text-2xl">Purchase Orders</h1>
-      <table className="border-collapse table-auto w-full text-sm">
+      <table className="border-collapse table-auto w-full text-sm mb-12">
         <thead>
           <tr>
             <th className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400 text-left">Order Number</th>
@@ -74,7 +62,7 @@ export default function Index() {
           </tr>
         </thead>
         <tbody className="bg-white dark:bg-slate-800">
-          {purchaseOrders && purchaseOrders.map((purchaseOrder) => (
+          {purchaseOrders && purchaseOrders.length > 0 ? purchaseOrders.map((purchaseOrder: PurchaseOrder) => (
             <tr key={purchaseOrder.id}>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{purchaseOrder.id}</td>
               <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{purchaseOrder.vendor_name}</td>
@@ -106,79 +94,14 @@ export default function Index() {
                 </button>
               </td>
             </tr>
-          ))}
+          )) : (
+            <p>No purchase orders available.</p>
+          )}
         </tbody>
       </table>
-      <CreatePurchaseOrderRHF />
+      <div className="mb-20">
+        <CreatePurchaseOrderRHF />
+      </div>
     </>
   );
 }
-
-// import CreatePurchaseOrderRHF from "../../components/CreatePurchaseOrder/CreatePurchaseOrderRHF";
-
-// interface PurchaseOrderLineItems {
-//   id: number;
-//   purchase_order_id: number;
-//   item_id: number;
-//   quantity: number;
-//   unit_cost: number;
-//   created_at: Date;
-//   updated_at?: Date;
-// };
-
-// interface PurchaseOrders {
-//   id: number;
-//   vendor_name: string;
-//   order_date: Date;
-//   expected_delivery_date: Date;
-//   created_at: Date;
-//   updated_at?: Date;
-//   purchase_order_line_items: PurchaseOrderLineItems[];
-// };
-
-// async function getData(): Promise<PurchaseOrders[]> {
-//   const res = await fetch('http://localhost:3100/api/purchase-orders', {cache: 'no-cache'});
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data');
-//   }
-
-//   return res.json();
-// }
-
-// export default async function Index() {
-//   const data = await getData()
-
-//   return (
-//     <>
-//       <h1 className="text-2xl">Purchase Orders</h1>
-//       <table className="border-collapse table-auto w-full text-sm">
-//         <thead>
-//         <tr>
-//           <th
-//             className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400 text-left">Vendor
-//           </th>
-//           <th
-//             className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400 text-left">Line items
-//           </th>
-//         </tr>
-//         </thead>
-//         <tbody className="bg-white dark:bg-slate-800">
-//         {data.map((purchaseOrder: PurchaseOrders) => (
-//           <tr key={purchaseOrder.id}>
-//             <td
-//               className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{purchaseOrder.vendor_name}</td>
-//             <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-//               <ul>
-//                 {purchaseOrder.purchase_order_line_items.map((lineItem: PurchaseOrderLineItems) => (
-//                   <li key={lineItem.id}>{lineItem.unit_cost}</li>
-//                 ))}
-//               </ul>
-//             </td>
-//           </tr>
-//         ))}
-//         </tbody>
-//       </table>
-//       <CreatePurchaseOrderRHF />
-//     </>
-//   );
-// }

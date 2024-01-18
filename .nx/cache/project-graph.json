@@ -12640,11 +12640,6 @@
     "client": [
       {
         "source": "client",
-        "target": "npm:next",
-        "type": "static"
-      },
-      {
-        "source": "client",
         "target": "npm:react",
         "type": "static"
       },
@@ -12655,17 +12650,22 @@
       },
       {
         "source": "client",
+        "target": "npm:react-query",
+        "type": "static"
+      },
+      {
+        "source": "client",
+        "target": "npm:next",
+        "type": "static"
+      },
+      {
+        "source": "client",
         "target": "npm:@nx/next",
         "type": "static"
       },
       {
         "source": "client",
         "target": "npm:daisyui",
-        "type": "static"
-      },
-      {
-        "source": "client",
-        "target": "npm:react-query",
         "type": "static"
       }
     ],

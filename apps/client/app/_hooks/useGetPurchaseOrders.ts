@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+import { PurchaseOrder } from '../purchase-orders/page';
 
 const fetchPurchaseOrders = async () => {
   const response = await fetch('http://localhost:3100/api/purchase-orders');
@@ -9,5 +10,5 @@ const fetchPurchaseOrders = async () => {
 };
 
 export function useFetchPurchaseOrders() {
-  return useQuery('purchaseOrders', fetchPurchaseOrders);
+  return useQuery<PurchaseOrder[], Error>('purchaseOrders', fetchPurchaseOrders);
 }

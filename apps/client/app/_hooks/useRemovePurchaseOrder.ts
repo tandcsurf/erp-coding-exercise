@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from 'react-query';
 
-const removePurchaseOrder = async (id) => {
+const removePurchaseOrder = async (id: string | number) => {
   const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
     method: 'DELETE',
   });

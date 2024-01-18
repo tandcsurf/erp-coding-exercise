@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from 'react-query';
+import { PurchaseOrder } from '../purchase-orders/page';
 
-const updatePurchaseOrder = async ({ id, updatedData }) => {
+const updatePurchaseOrder = async ({ id, updatedData }: {id: string, updatedData: PurchaseOrder}) => {
   const response = await fetch(`http://localhost:3100/api/purchase-orders/${id}`, {
     method: 'PATCH',
     headers: {
@@ -17,9 +18,11 @@ const updatePurchaseOrder = async ({ id, updatedData }) => {
 export function useUpdatePurchaseOrder() {
   const queryClient = useQueryClient();
   return useMutation(updatePurchaseOrder, {
-    onSuccess: () => {
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries(['purchaseOrder', variables.id]);
       queryClient.invalidateQueries('purchaseOrders');
     },
   });
 }
+
 
